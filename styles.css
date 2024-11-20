@@ -1,0 +1,12 @@
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.calculator-container{
+    background-color: black;
+    width: 450px;
+    height: 700px;
+    border-radius: 8px;
+}
