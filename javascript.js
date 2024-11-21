@@ -1,15 +1,33 @@
 let operator;
 let num1;
 let num2;
+let nums = [];
+let result;
 
 const op_buttons  = document.querySelectorAll(".op_button");
+const num_buttons  = document.querySelectorAll(".num_button");
+const eq_button = document.querySelector(".eq_button")
 
 op_buttons.forEach((button) => {
     button.addEventListener("click", () => {
         operator  = button.textContent;
         console.log(operator);
-    })
+    });
 });
+num_buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        if(nums.length < 2){
+            nums.push(parseInt(button.textContent));
+        }
+        else{
+            nums.pop();
+            nums.push(parseInt(button.textContent));
+        }
+        console.log(nums);
+    });
+   
+});
+
 
 function add(num1,num2){
     return num1+num2;
@@ -38,4 +56,8 @@ function operate(num1,num2,operator){
         multiply(num1,num2);
     }
 }
+
+eq_button.addEventListener("click",() =>{
+
+});
 
