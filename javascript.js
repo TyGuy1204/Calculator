@@ -6,7 +6,8 @@ let result;
 
 const op_buttons  = document.querySelectorAll(".op_button");
 const num_buttons  = document.querySelectorAll(".num_button");
-const eq_button = document.querySelector(".eq_button")
+const eq_button = document.querySelector(".eq_button");
+const display  = document.querySelector(".display");
 
 op_buttons.forEach((button) => {
     button.addEventListener("click", () => {
@@ -16,6 +17,7 @@ op_buttons.forEach((button) => {
 });
 num_buttons.forEach((button) => {
     button.addEventListener("click", () => {
+    display.textContent = parseInt(button.textContent);
         if(nums.length < 2){
             nums.push(parseInt(button.textContent));
         }
