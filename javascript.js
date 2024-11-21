@@ -58,6 +58,24 @@ function operate(num1,num2,operator){
 }
 
 eq_button.addEventListener("click",() =>{
-
+    if(nums.length ==  2 && operator){
+        if(operator === "+"){
+            result  = nums[0] + nums[1];
+        }
+        else if(operator === "-"){
+            result  = nums[1] - nums[0];
+        }
+        else if(operator === "*"){
+            result  = nums[1] * nums[0];
+        }
+        else if(operator === "/"){
+            result  = nums[1] / nums[0];
+        }
+       
+    }
+    else{
+        result  = nums[0];
+    }
+    console.log(result)
 });
 
