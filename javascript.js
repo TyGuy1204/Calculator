@@ -1,3 +1,16 @@
+let operator;
+let num1;
+let num2;
+
+const op_buttons  = document.querySelectorAll(".op_button");
+
+op_buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        operator  = button.textContent;
+        console.log(operator);
+    })
+});
+
 function add(num1,num2){
     return num1+num2;
 }
