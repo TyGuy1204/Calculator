@@ -23,6 +23,7 @@ body{
     width:450px;
     height: 125px;
     background-color: grey;
+    border-radius: 8px;
 }
 .calc-buttons{
     width:100%;
@@ -32,6 +33,7 @@ body{
     gap:1px;
     grid-template-columns: repeat(4,1fr);
     grid-template-rows: repeat(5,1fr);
+    border-radius: 8px;
 }
 button{
     display: flex;

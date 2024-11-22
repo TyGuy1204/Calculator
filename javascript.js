@@ -22,7 +22,12 @@ op_buttons.forEach((button) => {
 num_buttons.forEach((button) => {
     button.addEventListener("click", () => {
     display.textContent = parseInt(button.textContent);
-        if(nums.length < 2){
+        if(!Number.isInteger(nums[0]) && nums.length > 0){
+            nums[0] = nums[0]+button.textContent;
+            nums[0] = parseFloat(nums[0]);
+            display.textContent = nums[0];
+        }
+        else if(nums.length < 2){
             nums.unshift(parseInt(button.textContent));
         }
         else{
@@ -51,36 +56,25 @@ function divide(num1,num2){
 
 function operate(num1,num2,operator){
     if(operator == "+"){
-        add(num1,num2);
+        return add(num1,num2);
     }
     else if(operator == "-"){
-        subtract(num1,num2);
+        return subtract(num1,num2);
     }
     else if(operator == "/"){
-        divide(num1,num2);
+        return divide(num1,num2);
     }
     else if(operator == "*"){
-        multiply(num1,num2);
+        return multiply(num1,num2);
     }
 }
 
 eq_button.addEventListener("click",() =>{
     if(nums.length ==  2 && operator){
-        if(operator === "+"){
-            result  = nums[0] + nums[1];
-        }
-        else if(operator === "-"){
-            result  = nums[1] - nums[0];
-        }
-        else if(operator === "*"){
-            result  = nums[1] * nums[0];
-        }
-        else if(operator === "/"){
-            result  = nums[1] / nums[0];
-        }
-    nums.pop();
-    nums.unshift(parseInt(result));
-    display.textContent = result;
+        result  = operate(nums[0],nums[1],operator)
+        nums.pop();
+        nums.unshift(parseInt(result));
+        display.textContent = result;
     }
     else{
         result  = nums[0];
@@ -101,7 +95,7 @@ percent_button.addEventListener("click", () =>{
     display.textContent = nums[0];
 })
 decimal_button.addEventListener("click", () =>{
-    nums[0] = (nums[0]).toFixed(1);
+    nums[0] = ((nums[0]).toFixed(0) + '.');
     display.textContent = nums[0];
 })
 
