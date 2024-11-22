@@ -40,3 +40,6 @@ button{
     align-items: center;
     justify-content: center;
 }
+.eq_button{
+    grid-column: span 2;
+}
