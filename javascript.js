@@ -73,8 +73,9 @@ eq_button.addEventListener("click",() =>{
         else if(operator === "/"){
             result  = nums[1] / nums[0];
         }
-        nums  = [result];
-       
+    nums.pop();
+    nums.push(result);
+    display.textContent = result;
     }
     else{
         result  = nums[0];
