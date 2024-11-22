@@ -9,6 +9,7 @@ const num_buttons  = document.querySelectorAll(".num_button");
 const eq_button = document.querySelector(".eq_button");
 const display  = document.querySelector(".display");
 const clear_button = document.querySelector(".clear_button");
+const sign_button = document.querySelector(".sign_button");
 
 op_buttons.forEach((button) => {
     button.addEventListener("click", () => {
@@ -88,5 +89,9 @@ eq_button.addEventListener("click",() =>{
 clear_button.addEventListener("click", () =>{
     nums  = [];
     display.textContent = "";
+})
+sign_button.addEventListener("click", () =>{
+        nums[0] = (nums[0] * -1);
+        display.textContent = nums[0];
 })
 
