@@ -19,11 +19,12 @@ num_buttons.forEach((button) => {
     button.addEventListener("click", () => {
     display.textContent = parseInt(button.textContent);
         if(nums.length < 2){
-            nums.push(parseInt(button.textContent));
+            nums.unshift(parseInt(button.textContent));
         }
         else{
-            nums.pop();
-            nums.push(parseInt(button.textContent));
+           nums.pop();
+           nums.unshift(parseInt(button.textContent));
+
         }
         console.log(nums);
     });
@@ -74,7 +75,7 @@ eq_button.addEventListener("click",() =>{
             result  = nums[1] / nums[0];
         }
     nums.pop();
-    nums.push(result);
+    nums.unshift(parseInt(result));
     display.textContent = result;
     }
     else{
