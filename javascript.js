@@ -8,6 +8,7 @@ const op_buttons  = document.querySelectorAll(".op_button");
 const num_buttons  = document.querySelectorAll(".num_button");
 const eq_button = document.querySelector(".eq_button");
 const display  = document.querySelector(".display");
+const clear_button = document.querySelector(".clear_button");
 
 op_buttons.forEach((button) => {
     button.addEventListener("click", () => {
@@ -83,4 +84,9 @@ eq_button.addEventListener("click",() =>{
     }
     console.log(result)
 });
+
+clear_button.addEventListener("click", () =>{
+    nums  = [];
+    display.textContent = "";
+})
 
