@@ -10,6 +10,8 @@ const eq_button = document.querySelector(".eq_button");
 const display  = document.querySelector(".display");
 const clear_button = document.querySelector(".clear_button");
 const sign_button = document.querySelector(".sign_button");
+const decimal_button = document.querySelector(".decimal_button");
+const percent_button = document.querySelector(".percent_button");
 
 op_buttons.forEach((button) => {
     button.addEventListener("click", () => {
@@ -93,5 +95,13 @@ clear_button.addEventListener("click", () =>{
 sign_button.addEventListener("click", () =>{
         nums[0] = (nums[0] * -1);
         display.textContent = nums[0];
+})
+percent_button.addEventListener("click", () =>{
+    nums[0] = nums[0] / 100;
+    display.textContent = nums[0];
+})
+decimal_button.addEventListener("click", () =>{
+    nums[0] = (nums[0]).toFixed(1);
+    display.textContent = nums[0];
 })
 
