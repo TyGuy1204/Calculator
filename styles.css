@@ -1,8 +1,14 @@
+@font-face {
+    font-family: Technology;
+    src: url(Technology.ttf);
+}
 body{
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: "Technology";
+    
 }
 .calculator-container{
     display: flex;
@@ -16,7 +22,7 @@ body{
     padding:20px;
 }
 .display{
-    font-size: 50px;
+    font-size: 100px;
     display: flex;
     align-items: center;
     justify-content: end;
@@ -36,6 +42,8 @@ body{
     border-radius: 8px;
 }
 button{
+    font-family: "Technology";
+    font-size: 50px;
     display: flex;
     margin:2px;
     border-radius: 8px;
