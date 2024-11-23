@@ -75,9 +75,14 @@ eq_button.addEventListener("click",() =>{
             display.textContent = result;
         }
         else{
-            display.textContent = result.toFixed(5);
+            if((result + "").length > 5){
+                console.log(result + "");
+                display.textContent = result.toFixed(5);
+            }
+            else{
+                display.textContent  = result;
+            }
         }
-        
     }
     else{
         result  = nums[0];
