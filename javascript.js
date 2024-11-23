@@ -24,12 +24,7 @@ op_buttons.forEach((button) => {
 num_buttons.forEach((button) => {
     button.addEventListener("click", () => {
     display.textContent = parseInt(button.textContent);
-        if(!Number.isInteger(nums[0]) && nums.length > 0){
-            nums[0] = nums[0]+button.textContent;
-            nums[0] = parseFloat(nums[0]);
-            display.textContent = nums[0];
-        }
-        else if(nums.length < 2){
+        if(nums.length < 2){
             nums.unshift(parseInt(button.textContent));
         }
         else{
@@ -75,8 +70,14 @@ eq_button.addEventListener("click",() =>{
     if(nums.length ==  2 && operator){
         result  = operate(nums[0],nums[1],operator)
         nums.pop();
-        nums.unshift(parseInt(result));
-        display.textContent = result;
+        nums.unshift((result));
+        if(Number.isInteger(result)){
+            display.textContent = result;
+        }
+        else{
+            display.textContent = result.toFixed(5);
+        }
+        
     }
     else{
         result  = nums[0];
@@ -100,7 +101,7 @@ percent_button.addEventListener("click", () =>{
 })
 // Logic for . button
 decimal_button.addEventListener("click", () =>{
-    nums[0] = ((nums[0]).toFixed(0) + '.');
+    nums[0] = parseFloat((nums[0]).toFixed(0) + '.');
     display.textContent = nums[0];
 })
 
