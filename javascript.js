@@ -3,6 +3,7 @@ let operator;
 let num1;
 let num2;
 let nums = [];
+let decimalMode  = false;
 let result;
 // Variables for each type of buttons
 const op_buttons  = document.querySelectorAll(".op_button");
@@ -16,6 +17,7 @@ const percent_button = document.querySelector(".percent_button");
 // Set operator when corresponding button is clicked
 op_buttons.forEach((button) => {
     button.addEventListener("click", () => {
+        decimalMode = false;
         operator  = button.textContent;
         console.log(operator);
     });
@@ -24,6 +26,11 @@ op_buttons.forEach((button) => {
 num_buttons.forEach((button) => {
     button.addEventListener("click", () => {
     display.textContent = parseInt(button.textContent);
+    if(decimalMode == true){
+        nums[0] = parseFloat(nums[0] + "" + button.textContent);
+        display.textContent = nums[0];
+    }
+    else{
         if(nums.length < 2){
             nums.unshift(parseInt(button.textContent));
         }
@@ -32,6 +39,8 @@ num_buttons.forEach((button) => {
            nums.unshift(parseInt(button.textContent));
 
         }
+    }
+        
         console.log(nums);
     });
    
@@ -92,6 +101,7 @@ eq_button.addEventListener("click",() =>{
 // Logic for AC button
 clear_button.addEventListener("click", () =>{
     nums  = [];
+    decimalMode = false;
     display.textContent = "";
 })
 // Logic for +- button
@@ -106,7 +116,8 @@ percent_button.addEventListener("click", () =>{
 })
 // Logic for . button
 decimal_button.addEventListener("click", () =>{
-    nums[0] = parseFloat((nums[0]).toFixed(0) + '.');
+    decimalMode  = true;
+    nums[0] = nums[0] + ".";
     display.textContent = nums[0];
 })
 
